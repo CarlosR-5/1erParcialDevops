@@ -17,4 +17,6 @@ jobs:
           node-version: 18
 
       - name: Deploy to Surge
-        run: npx surge ./ ${{ secrets.SURGE_DOMAIN }} --token=${{ secrets.SURGE_TOKEN }}
+        run: |
+          npx surge ./ ${{ secrets.SURGE_DOMAIN }} --token=${{ secrets.SURGE_TOKEN }}
+
