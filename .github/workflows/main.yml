@@ -12,8 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Install Surge
         run: npm install -g surge
 
       - name: Deploy to Surge
-        run: surge ./ --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+        run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
